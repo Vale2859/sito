@@ -40,7 +40,20 @@
   <main class="homepage-main">
     <section class="hero container">
       <div class="hero-left">
-        <!-- Spazio libero per future foto / cornice -->
+        <div class="shape-slider">
+          <div class="shape-slider-track" id="shapeSliderTrack">
+            <img class="shape-slide active" src="16CC8117-4A43-4C6F-A4C7-3C77C88DB1CE.jpeg" alt="Foto farmacia 1">
+            <img class="shape-slide" src="CC3A721B-911E-431E-8493-C9380A9E6CB5.jpeg" alt="Foto farmacia 2">
+            <img class="shape-slide" src="BE027875-C30B-418C-A90E-59F7DD4D207C.jpeg" alt="Foto farmacia 3">
+            <img class="shape-slide" src="9A0583F3-3FA1-4009-8E29-1B97BF750070.jpeg" alt="Foto farmacia 4">
+          </div>
+
+          <img
+            src="F0DA2B2D-AA5D-4DFB-99AE-789A9A878E01.jpeg"
+            alt="Cornice slider"
+            class="shape-frame"
+          />
+        </div>
       </div>
 
       <div class="hero-text">
@@ -147,12 +160,7 @@
     </div>
 
     <form class="chat-input-area" id="chatForm">
-      <input
-        type="text"
-        id="chatInput"
-        placeholder="Scrivi la tua domanda..."
-        autocomplete="off"
-      />
+      <input type="text" id="chatInput" placeholder="Scrivi la tua domanda..." autocomplete="off" />
       <button type="submit">Invia</button>
     </form>
   </div>
