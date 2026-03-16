@@ -6,6 +6,7 @@ const chatForm = document.getElementById('chatForm');
 const chatInput = document.getElementById('chatInput');
 const chatBody = document.getElementById('chatBody');
 const quickButtons = document.querySelectorAll('.quick-btn');
+const slides = document.querySelectorAll('.shape-slide');
 
 window.addEventListener('load', () => {
   if (window.innerWidth > 768 && chatIntro) {
@@ -26,15 +27,13 @@ function closeChatWindow() {
   chatWindow.classList.remove('open');
 }
 
-chatFab.addEventListener('click', openChat);
-closeChat.addEventListener('click', closeChatWindow);
+if (chatFab) chatFab.addEventListener('click', openChat);
+if (closeChat) closeChat.addEventListener('click', closeChatWindow);
 
 quickButtons.forEach((button) => {
   button.addEventListener('click', () => {
     const link = button.getAttribute('data-link');
-    if (link) {
-      window.location.href = link;
-    }
+    if (link) window.location.href = link;
   });
 });
 
@@ -60,23 +59,18 @@ function getBotReply(message) {
   if (msg.includes('turno') || msg.includes('farmacia di turno')) {
     return 'Ti porto subito alla sezione Farmacia di turno.';
   }
-
   if (msg.includes('promo') || msg.includes('offerta') || msg.includes('sconto')) {
     return 'Ti aiuto con promo e offerte. Controlla la pagina dedicata.';
   }
-
   if (msg.includes('beauty') || msg.includes('pelle') || msg.includes('viso')) {
     return 'Per beauty e consulenze puoi aprire la pagina dedicata.';
   }
-
   if (msg.includes('servizi') || msg.includes('pressione') || msg.includes('controllo')) {
     return 'Abbiamo diversi servizi disponibili in farmacia. Ti consiglio di aprire la pagina Servizi.';
   }
-
   if (msg.includes('orari') || msg.includes('aperti') || msg.includes('orario')) {
     return 'Siamo aperti dal lunedì al venerdì dalle 8:30 alle 20:00, e il sabato dalle 8:30 alle 13:00.';
   }
-
   if (msg.includes('telefono') || msg.includes('whatsapp') || msg.includes('email') || msg.includes('contatti')) {
     return 'Puoi contattarci dai pulsanti rapidi presenti nella barra in basso.';
   }
@@ -84,17 +78,33 @@ function getBotReply(message) {
   return 'Grazie per il messaggio. Puoi usare i pulsanti rapidi oppure consultare le sezioni del sito per trovare subito ciò che ti serve.';
 }
 
-chatForm.addEventListener('submit', (e) => {
-  e.preventDefault();
+if (chatForm) {
+  chatForm.addEventListener('submit', (e) => {
+    e.preventDefault();
 
-  const text = chatInput.value.trim();
-  if (!text) return;
+    const text = chatInput.value.trim();
+    if (!text) return;
 
-  addUserMessage(text);
-  chatInput.value = '';
+    addUserMessage(text);
+    chatInput.value = '';
 
-  setTimeout(() => {
-    const reply = getBotReply(text);
-    addBotMessage(reply);
-  }, 500);
-});
+    setTimeout(() => {
+      addBotMessage(getBotReply(text));
+    }, 500);
+  });
+}
+
+let currentSlide = 0;
+
+function showSlide(index) {
+  slides.forEach((slide, i) => {
+    slide.classList.toggle('active', i === index);
+  });
+}
+
+if (slides.length > 1) {
+  setInterval(() => {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  }, 3500);
+}
