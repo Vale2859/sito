@@ -39,8 +39,11 @@
 
   <main class="homepage-main container">
     <section class="top-banner">
-      <div class="top-banner-text">
-        Oggi consulenze dedicate • Promo del mese attive • Nuovi servizi disponibili
+      <div class="top-banner-inner">
+        <div class="top-banner-title">Messaggi della farmacia</div>
+        <div class="top-banner-text">
+          Oggi consulenze dedicate • Promo del mese attive • Nuovi servizi disponibili
+        </div>
       </div>
     </section>
 
@@ -94,21 +97,6 @@
             </div>
           </a>
         </section>
-
-        <section id="contatti" class="bottom-row">
-          <div class="contact-strip">
-            <a href="tel:+390000000000" class="contact-item">Chiama</a>
-            <a href="https://wa.me/390000000000" class="contact-item" target="_blank" rel="noopener">WhatsApp</a>
-            <a href="mailto:info@farmaciamontesano.it" class="contact-item">Email</a>
-            <a href="https://maps.google.com" class="contact-item" target="_blank" rel="noopener">Dove siamo</a>
-          </div>
-
-          <div class="opening-box">
-            <span>Siamo aperti</span>
-            <strong>Lun - Ven 8:30 - 20:00</strong>
-            <strong>Sab 8:30 - 13:00</strong>
-          </div>
-        </section>
       </div>
 
       <aside class="right-column">
@@ -130,48 +118,22 @@
         <div class="right-empty-space"></div>
       </aside>
     </section>
+
+    <section id="contatti" class="bottom-row-full">
+      <div class="contact-strip">
+        <a href="tel:+390000000000" class="contact-item">Chiama</a>
+        <a href="https://wa.me/390000000000" class="contact-item" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="mailto:info@farmaciamontesano.it" class="contact-item">Email</a>
+        <a href="https://maps.google.com" class="contact-item" target="_blank" rel="noopener">Dove siamo</a>
+      </div>
+
+      <div class="opening-box">
+        <span>Siamo aperti</span>
+        <strong>Lun - Ven 8:30 - 20:00</strong>
+        <strong>Sab 8:30 - 13:00</strong>
+      </div>
+    </section>
   </main>
-
-  <button class="chat-fab" id="chatFab" aria-label="Apri assistente farmacia">👩🏻‍⚕️</button>
-
-  <div class="chat-intro" id="chatIntro">
-    <div class="chat-intro-inner">
-      <strong>Assistente Farmacia</strong>
-      <p>Ciao! Posso aiutarti con servizi, promo, beauty e turni.</p>
-    </div>
-  </div>
-
-  <div class="chat-window" id="chatWindow">
-    <div class="chat-header">
-      <div>
-        <h4>Assistente Farmacia</h4>
-        <span>Farmacia Montesano</span>
-      </div>
-      <button id="closeChat" aria-label="Chiudi chat">✕</button>
-    </div>
-
-    <div class="chat-body" id="chatBody">
-      <div class="bot-message">
-        Ciao! Sono l’assistente della Farmacia Montesano.
-      </div>
-
-      <div class="bot-message">
-        Posso aiutarti con:
-        <div class="quick-actions">
-          <button class="quick-btn" data-link="servizi.html">💊 Consiglio per un sintomo</button>
-          <button class="quick-btn" data-link="servizi.html">🩺 Servizi disponibili</button>
-          <button class="quick-btn" data-link="promo.html">🎁 Promo e offerte</button>
-          <button class="quick-btn" data-link="beauty.html">👸 Giornate Beauty</button>
-          <button class="quick-btn" data-link="turni.html">🕒 Farmacia di turno</button>
-        </div>
-      </div>
-    </div>
-
-    <form class="chat-input-area" id="chatForm">
-      <input type="text" id="chatInput" placeholder="Scrivi la tua domanda..." autocomplete="off" />
-      <button type="submit">Invia</button>
-    </form>
-  </div>
 
   <script src="script.js"></script>
 </body>
