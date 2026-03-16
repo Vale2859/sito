@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Farmacia Montesano</title>
+  <meta name="description" content="Sito vetrina moderno e responsive per Farmacia Montesano." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-glow glow-top"></div>
+  <div class="page-glow glow-bottom"></div>
+
+  <header class="site-header glass">
+    <div class="container nav-wrap">
+      <a href="index.html" class="brand" aria-label="Farmacia Montesano home">
+        <span class="brand-mark">M</span>
+        <span class="brand-text">
+          <strong>MONTESANO</strong>
+          <small>FARMACIA</small>
+        </span>
+      </a>
+
+      <nav class="desktop-nav">
+        <a href="#home" class="active">Home</a>
+        <a href="#servizi">Servizi</a>
+        <a href="#beauty">Chi siamo</a>
+        <a href="#promo">Beauty</a>
+        <a href="#turni">Turni</a>
+        <a href="#contatti">Contatti</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon-btn" id="searchBtn" aria-label="Apri ricerca">⌕</button>
+        <a href="#contatti" class="cta-btn">Prenota ora <span>→</span></a>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Apri menu">☰</button>
+      </div>
+    </div>
+
+    <div class="mobile-menu glass" id="mobileMenu">
+      <a href="#home">Home</a>
+      <a href="#servizi">Servizi</a>
+      <a href="#beauty">Chi siamo</a>
+      <a href="#promo">Beauty</a>
+      <a href="#turni">Turni</a>
+      <a href="#contatti">Contatti</a>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero container">
+      <div class="hero-media">
+        <div class="frame-stage">
+          <img src="frame.png" alt="Cornice verde decorativa" class="hero-frame" />
+          <div class="frame-slider" id="frameSlider">
+            <img src="frame-preview.jpg" alt="Interno farmacia" class="slide active" />
+            <img src="card-servizi.jpg" alt="Servizi farmacia" class="slide" />
+            <img src="card-promo.jpg" alt="Promo farmacia" class="slide" />
+            <img src="card-beauty.jpg" alt="Beauty farmacia" class="slide" />
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-copy">
+        <p class="eyebrow">Benvenuti nella</p>
+        <h1>FARMACIA <br><span>MONTESANO</span></h1>
+        <p class="lead">La tua farmacia di fiducia, ogni giorno. Un sito elegante, rapido e perfetto sia da computer che da telefono.</p>
+        <div class="pill-row glass">
+          <span>✓ Consulenza</span>
+          <span>• Esperienza</span>
+          <span>• Professionalità</span>
+        </div>
+        <div class="hero-buttons">
+          <a href="#cards" class="cta-btn">Scopri di più</a>
+          <a href="#contatti" class="ghost-btn">Contattaci</a>
+        </div>
+      </div>
+
+      <aside class="hero-side glass">
+        <div class="hero-side-card">
+          <div class="assistant-avatar">👩🏻‍⚕️</div>
+          <h3>Assistente farmacia</h3>
+          <p>Mini chat desktop con presentazione automatica e versione fullscreen su telefono.</p>
+        </div>
+      </aside>
+    </section>
+
+    <section class="mobile-highlight container glass">
+      <span class="dot"></span>
+      <div class="ticker" id="ticker">Oggi consulenze e servizi dedicati • Controlli • Promo • Turni • Beauty</div>
+    </section>
+
+    <section class="cards-section container" id="cards">
+      <a href="servizi.html" class="feature-card light-card" id="servizi">
+        <div class="feature-card__bg" style="background-image:url('card-servizi.jpg')"></div>
+        <div class="feature-card__overlay"></div>
+        <div class="feature-card__content">
+          <div class="card-icon">♡</div>
+          <h3>I nostri servizi</h3>
+          <p>Controlli, consulenze e supporto quotidiano.</p>
+          <span class="chip">Scopri di più →</span>
+        </div>
+      </a>
+
+      <a href="promo.html" class="feature-card" id="promo">
+        <div class="feature-card__bg" style="background-image:url('card-promo.jpg')"></div>
+        <div class="feature-card__overlay"></div>
+        <div class="feature-card__content">
+          <h3>Promo del mese</h3>
+          <p>Offerte, sconti e novità attive in farmacia.</p>
+          <span class="chip">Approfittane →</span>
+        </div>
+      </a>
+
+      <a href="beauty.html" class="feature-card" id="beauty">
+        <div class="feature-card__bg" style="background-image:url('card-beauty.jpg')"></div>
+        <div class="feature-card__overlay"></div>
+        <div class="feature-card__content">
+          <h3>Giornate beauty</h3>
+          <p>Eventi, consulenze e giornate dedicate alla pelle.</p>
+          <span class="chip">Prenota ora →</span>
+        </div>
+      </a>
+
+      <a href="turni.html" class="feature-card" id="turni">
+        <div class="feature-card__bg" style="background-image:url('card-turno.jpg')"></div>
+        <div class="feature-card__overlay"></div>
+        <div class="feature-card__content">
+          <h3>Farmacia di turno</h3>
+          <p>Info rapide e collegamento alla pagina turni.</p>
+          <span class="chip dark">Vedi turni →</span>
+        </div>
+      </a>
+    </section>
+
+    <section class="quick-actions container" id="contatti">
+      <div class="quick-links glass">
+        <a href="tel:+390000000000">Chiama</a>
+        <a href="https://wa.me/390000000000" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="mailto:info@farmaciamontesano.it">Email</a>
+        <a href="https://maps.google.com" target="_blank" rel="noopener">Dove siamo</a>
+      </div>
+      <div class="hours-box glass">
+        <strong>Siamo aperti:</strong>
+        <span>Lun – Sab &nbsp; 8:30 • 20:00</span>
+      </div>
+    </section>
+
+    <section class="info-grid container">
+      <article class="info-panel glass">
+        <h2>Stile premium e pulito</h2>
+        <p>Homepage costruita per ricordare il layout che mi hai mostrato: grande hero iniziale, card evidenti, glow verdi e struttura moderna.</p>
+      </article>
+      <article class="info-panel glass">
+        <h2>Perfetto per GitHub Pages</h2>
+        <p>Tutto è statico: HTML, CSS, JS e immagini. Ti basta copiare i file nel repository GitHub e pubblicare.</p>
+      </article>
+      <article class="info-panel glass">
+        <h2>Chat desktop + mobile</h2>
+        <p>Su computer appare la nuvoletta iniziale che si chiude dopo 5 secondi. Da lì apri la mini chat. Su telefono la chat si apre fullscreen.</p>
+      </article>
+    </section>
+  </main>
+
+  <nav class="mobile-bottom-nav glass">
+    <a href="#home" class="active">🏠<span>Home</span></a>
+    <a href="tel:+390000000000">📞<span>Telefono</span></a>
+    <a href="https://wa.me/390000000000" target="_blank" rel="noopener">💬<span>WhatsApp</span></a>
+    <a href="mailto:info@farmaciamontesano.it">✉️<span>Mail</span></a>
+    <a href="https://maps.google.com" target="_blank" rel="noopener">📍<span>Mappe</span></a>
+  </nav>
+
+  <button class="chat-fab" id="chatFab" aria-label="Apri assistente farmacia">👩🏻‍⚕️</button>
+
+  <div class="chat-intro glass" id="chatIntro">
+    <div class="chat-intro__avatar">👩🏻‍⚕️</div>
+    <div>
+      <strong>Assistente Farmacia</strong>
+      <p>Ciao! Sono l'assistente della Farmacia Montesano.</p>
+    </div>
+  </div>
+
+  <section class="chat-widget glass" id="chatWidget" aria-label="Chat assistente farmacia">
+    <header class="chat-header">
+      <div>
+        <strong>Assistente Farmacia</strong>
+        <small>Farmacia Montesano</small>
+      </div>
+      <button class="chat-close" id="chatClose" aria-label="Chiudi chat">×</button>
+    </header>
+
+    <div class="chat-body" id="chatBody">
+      <div class="bot-message">
+        Ciao! Sono l'assistente della Farmacia Montesano.<br><br>
+        Posso aiutarti con:
+        <div class="suggestions">
+          <button class="suggestion">💊 Consiglio per un sintomo</button>
+          <button class="suggestion">🩺 Servizi disponibili</button>
+          <button class="suggestion">🎁 Promo e offerte</button>
+          <button class="suggestion">👸 Giornate Beauty</button>
+          <button class="suggestion">🕒 Farmacia di turno</button>
+        </div>
+      </div>
+    </div>
+
+    <form class="chat-input-area" id="chatForm">
+      <input type="text" id="chatInput" placeholder="Scrivi la tua domanda..." autocomplete="off" />
+      <button type="submit">Invia</button>
+    </form>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
