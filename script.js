@@ -1,111 +1,100 @@
-const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-const mobileMenu = document.getElementById('mobileMenu');
-const frameSlider = document.getElementById('frameSlider');
-const slides = frameSlider ? Array.from(frameSlider.querySelectorAll('.slide')) : [];
 const chatFab = document.getElementById('chatFab');
-const chatWidget = document.getElementById('chatWidget');
-const chatClose = document.getElementById('chatClose');
+const chatWindow = document.getElementById('chatWindow');
+const closeChat = document.getElementById('closeChat');
 const chatIntro = document.getElementById('chatIntro');
 const chatForm = document.getElementById('chatForm');
 const chatInput = document.getElementById('chatInput');
 const chatBody = document.getElementById('chatBody');
-const suggestions = () => Array.from(document.querySelectorAll('.suggestion'));
+const quickButtons = document.querySelectorAll('.quick-btn');
 
-const botReplies = {
-  '💊 Consiglio per un sintomo': 'Per sintomi comuni puoi chiedermi un primo orientamento. Per sintomi importanti o persistenti è sempre meglio contattare direttamente la farmacia o il medico.',
-  '🩺 Servizi disponibili': 'Possiamo mostrare servizi come ECG, holter, consulenze, analisi e giornate dedicate. Ti basta personalizzare i testi nelle pagine interne.',
-  '🎁 Promo e offerte': 'Qui puoi inserire le promo del mese, sconti attivi, marchi in evidenza e offerte stagionali.',
-  '👸 Giornate Beauty': 'Puoi usare questa sezione per eventi beauty, check pelle, consulenze cosmetiche e prenotazioni.',
-  '🕒 Farmacia di turno': 'Questa sezione può collegarsi alla tua pagina turni oppure a un servizio esterno con l’elenco aggiornato.'
-};
-
-if (mobileMenuBtn) {
-  mobileMenuBtn.addEventListener('click', () => {
-    mobileMenu.classList.toggle('open');
-  });
-}
-
-if (slides.length > 1) {
-  let current = 0;
-  setInterval(() => {
-    slides[current].classList.remove('active');
-    current = (current + 1) % slides.length;
-    slides[current].classList.add('active');
-  }, 3400);
-}
+window.addEventListener('load', () => {
+  if (window.innerWidth > 768 && chatIntro) {
+    setTimeout(() => {
+      chatIntro.classList.add('hide');
+    }, 5000);
+  }
+});
 
 function openChat() {
-  chatWidget.classList.add('open');
-  chatIntro.classList.add('hidden');
-  setTimeout(() => chatInput?.focus(), 150);
+  chatWindow.classList.add('open');
+  if (chatIntro) {
+    chatIntro.classList.add('hide');
+  }
 }
 
-function closeChat() {
-  chatWidget.classList.remove('open');
+function closeChatWindow() {
+  chatWindow.classList.remove('open');
 }
 
-if (chatFab) chatFab.addEventListener('click', openChat);
-if (chatClose) chatClose.addEventListener('click', closeChat);
+chatFab.addEventListener('click', openChat);
+closeChat.addEventListener('click', closeChatWindow);
 
-setTimeout(() => {
-  if (chatIntro) chatIntro.classList.add('hidden');
-}, 5000);
-
-function appendMessage(text, type = 'bot') {
-  const bubble = document.createElement('div');
-  bubble.className = type === 'user' ? 'user-message' : 'bot-message';
-  bubble.textContent = text;
-  chatBody.appendChild(bubble);
-  chatBody.scrollTop = chatBody.scrollHeight;
-}
-
-function answerUser(message) {
-  const normalized = message.toLowerCase();
-
-  if (normalized.includes('turno')) {
-    return 'Puoi collegare qui il link reale della farmacia di turno oppure la tua pagina turni personalizzata.';
-  }
-  if (normalized.includes('promo') || normalized.includes('offert')) {
-    return 'Puoi aggiornare promo, offerte e volantini direttamente nella pagina Promo e nelle card della home.';
-  }
-  if (normalized.includes('serviz')) {
-    return 'Nella pagina Servizi puoi inserire ECG, holter, autoanalisi, consulenze e prenotazioni.';
-  }
-  if (normalized.includes('beauty') || normalized.includes('pelle')) {
-    return 'La sezione Beauty è pronta per giornate evento, check pelle e consulenze cosmetiche.';
-  }
-  if (normalized.includes('orari') || normalized.includes('apert')) {
-    return 'Gli orari attuali inseriti nella demo sono Lun-Sab 8:30-20:00. Li puoi cambiare in pochi secondi nel file index.html.';
-  }
-
-  return 'Messaggio ricevuto. Questa è una demo pronta per GitHub Pages: se vuoi, puoi collegarla poi a un vero backend o a una chat AI.';
-}
-
-if (chatForm) {
-  chatForm.addEventListener('submit', (event) => {
-    event.preventDefault();
-    const message = chatInput.value.trim();
-    if (!message) return;
-
-    appendMessage(message, 'user');
-    chatInput.value = '';
-
-    setTimeout(() => {
-      appendMessage(answerUser(message), 'bot');
-    }, 500);
-  });
-}
-
-suggestions().forEach((button) => {
+quickButtons.forEach((button) => {
   button.addEventListener('click', () => {
-    openChat();
-    const label = button.textContent.trim();
-    appendMessage(label, 'user');
-    setTimeout(() => appendMessage(botReplies[label] || 'Questa sezione è pronta da personalizzare.', 'bot'), 400);
+    const link = button.getAttribute('data-link');
+    if (link) {
+      window.location.href = link;
+    }
   });
 });
 
-// Chiusura menu mobile dopo click
-Array.from(document.querySelectorAll('.mobile-menu a')).forEach((link) => {
-  link.addEventListener('click', () => mobileMenu.classList.remove('open'));
+function addUserMessage(text) {
+  const div = document.createElement('div');
+  div.className = 'user-message';
+  div.textContent = text;
+  chatBody.appendChild(div);
+  chatBody.scrollTop = chatBody.scrollHeight;
+}
+
+function addBotMessage(text) {
+  const div = document.createElement('div');
+  div.className = 'bot-message';
+  div.textContent = text;
+  chatBody.appendChild(div);
+  chatBody.scrollTop = chatBody.scrollHeight;
+}
+
+function getBotReply(message) {
+  const msg = message.toLowerCase();
+
+  if (msg.includes('turno') || msg.includes('farmacia di turno')) {
+    return 'Ti porto subito alla sezione Farmacia di turno.';
+  }
+
+  if (msg.includes('promo') || msg.includes('offerta') || msg.includes('sconto')) {
+    return 'Ti aiuto con promo e offerte. Controlla la pagina dedicata.';
+  }
+
+  if (msg.includes('beauty') || msg.includes('pelle') || msg.includes('viso')) {
+    return 'Per beauty e consulenze puoi aprire la pagina dedicata.';
+  }
+
+  if (msg.includes('servizi') || msg.includes('pressione') || msg.includes('controllo')) {
+    return 'Abbiamo diversi servizi disponibili in farmacia. Ti consiglio di aprire la pagina Servizi.';
+  }
+
+  if (msg.includes('orari') || msg.includes('aperti') || msg.includes('orario')) {
+    return 'Siamo aperti dal lunedì al sabato, dalle 8:30 alle 20:00.';
+  }
+
+  if (msg.includes('telefono') || msg.includes('whatsapp') || msg.includes('email') || msg.includes('contatti')) {
+    return 'Puoi contattarci dai pulsanti rapidi presenti nella homepage.';
+  }
+
+  return 'Grazie per il messaggio. Puoi usare i pulsanti rapidi oppure consultare le sezioni del sito per trovare subito ciò che ti serve.';
+}
+
+chatForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  const text = chatInput.value.trim();
+  if (!text) return;
+
+  addUserMessage(text);
+  chatInput.value = '';
+
+  setTimeout(() => {
+    const reply = getBotReply(text);
+    addBotMessage(reply);
+  }, 500);
 });
