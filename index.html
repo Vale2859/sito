@@ -7,7 +7,7 @@
   <meta name="description" content="Farmacia Montesano - servizi, promo, beauty, turni e contatti." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -39,25 +39,22 @@
     </div>
   </header>
 
-  <main>
+  <main class="homepage-main">
     <section class="hero container">
+      <div class="hero-left"></div>
+
       <div class="hero-text">
         <p class="eyebrow">Benvenuti nella</p>
         <h1>FARMACIA <span>MONTESANO</span></h1>
+
         <p class="hero-subtitle">
-          La tua farmacia di fiducia, ogni giorno. Un sito elegante, rapido e perfetto
-          sia da computer che da telefono.
+          La tua farmacia di fiducia, ogni giorno.
         </p>
 
         <div class="hero-pills">
           <span>✓ Consulenza</span>
           <span>• Esperienza</span>
           <span>• Professionalità</span>
-        </div>
-
-        <div class="hero-buttons">
-          <a href="servizi.html" class="primary-btn">Scopri di più</a>
-          <a href="#contatti" class="secondary-btn">Contattaci</a>
         </div>
       </div>
     </section>
@@ -103,19 +100,24 @@
         </div>
       </a>
     </section>
+  </main>
 
-    <section id="contatti" class="contact-row container">
-      <a href="tel:+390000000000" class="contact-pill">Chiama</a>
-      <a href="https://wa.me/390000000000" class="contact-pill" target="_blank" rel="noopener">WhatsApp</a>
-      <a href="mailto:info@farmaciamontesano.it" class="contact-pill">Email</a>
-      <a href="https://maps.google.com" class="contact-pill" target="_blank" rel="noopener">Dove siamo</a>
+  <section id="contatti" class="bottom-fixed-bar">
+    <div class="container bottom-fixed-inner">
+      <div class="contact-strip">
+        <a href="tel:+390000000000" class="contact-item">Chiama</a>
+        <a href="https://wa.me/390000000000" class="contact-item" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="mailto:info@farmaciamontesano.it" class="contact-item">Email</a>
+        <a href="https://maps.google.com" class="contact-item" target="_blank" rel="noopener">Dove siamo</a>
+      </div>
 
       <div class="opening-box">
-        <span>Siamo aperti:</span>
-        <strong>Lun - Sab &nbsp; 8:30 • 20:00</strong>
+        <span>Siamo aperti</span>
+        <strong>Lun - Ven 8:30 - 20:00</strong>
+        <strong>Sab 8:30 - 13:00</strong>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
   <button class="chat-fab" id="chatFab" aria-label="Apri assistente farmacia">👩🏻‍⚕️</button>
 
