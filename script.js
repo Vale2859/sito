@@ -74,11 +74,11 @@ function getBotReply(message) {
   }
 
   if (msg.includes('orari') || msg.includes('aperti') || msg.includes('orario')) {
-    return 'Siamo aperti dal lunedì al sabato, dalle 8:30 alle 20:00.';
+    return 'Siamo aperti dal lunedì al venerdì dalle 8:30 alle 20:00, e il sabato dalle 8:30 alle 13:00.';
   }
 
   if (msg.includes('telefono') || msg.includes('whatsapp') || msg.includes('email') || msg.includes('contatti')) {
-    return 'Puoi contattarci dai pulsanti rapidi presenti nella homepage.';
+    return 'Puoi contattarci dai pulsanti rapidi presenti nella barra in basso.';
   }
 
   return 'Grazie per il messaggio. Puoi usare i pulsanti rapidi oppure consultare le sezioni del sito per trovare subito ciò che ti serve.';
