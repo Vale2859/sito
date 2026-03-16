@@ -1,13 +1,8 @@
 :root {
-  --bg: #071a18;
-  --bg-2: #0c2421;
-  --panel: rgba(255, 255, 255, 0.08);
-  --panel-strong: rgba(255, 255, 255, 0.12);
-  --line: rgba(255, 255, 255, 0.12);
   --text: #f6fbfa;
   --muted: rgba(255, 255, 255, 0.76);
   --green: #3cffc9;
-  --green-2: #1fd8a4;
+  --line: rgba(255, 255, 255, 0.12);
   --shadow: 0 20px 50px rgba(0, 0, 0, 0.28);
   --container: 1240px;
   --bottom-bar-h: 118px;
@@ -173,23 +168,65 @@ input {
 }
 
 .hero {
-  min-height: 185px;
+  min-height: 245px;
   display: grid;
-  grid-template-columns: 1.45fr 0.9fr;
+  grid-template-columns: 1.55fr 0.85fr;
   align-items: start;
   gap: 24px;
   padding: 18px 0 0;
 }
 
 .hero-left {
-  min-height: 210px;
+  min-height: 280px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.shape-slider {
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  height: 320px;
+}
+
+.shape-slider-track {
+  position: absolute;
+  inset: 18px 40px 40px 26px;
+  overflow: hidden;
+  border-radius: 38px 34px 70px 34px;
+  background: rgba(255,255,255,0.05);
+}
+
+.shape-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.9s ease;
+}
+
+.shape-slide.active {
+  opacity: 1;
+}
+
+.shape-frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  z-index: 3;
+  filter: drop-shadow(0 0 18px rgba(60,255,201,0.28));
 }
 
 .hero-text {
   max-width: 390px;
   justify-self: end;
   text-align: left;
-  margin-top: 28px;
+  margin-top: 36px;
 }
 
 .eyebrow {
@@ -240,12 +277,12 @@ input {
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 12px;
   padding: 0;
-  margin-top: 78px;
+  margin-top: 24px;
 }
 
 .home-card {
   position: relative;
-  min-height: 165px;
+  min-height: 152px;
   border-radius: 22px;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.14);
@@ -552,19 +589,19 @@ input {
     gap: 12px;
   }
 
-  .hero-left {
-    min-height: 0;
-  }
-
   .hero-text {
     justify-self: start;
     max-width: 100%;
     margin-top: 8px;
   }
 
+  .shape-slider {
+    max-width: 100%;
+    height: 290px;
+  }
+
   .cards {
     grid-template-columns: repeat(2, 1fr);
-    margin-top: 26px;
   }
 
   .bottom-fixed-inner {
@@ -595,12 +632,16 @@ input {
     display: none;
   }
 
-  .homepage-main {
-    padding-bottom: calc(var(--bottom-bar-h) + 24px);
-  }
-
   .hero {
     padding: 18px 0 0;
+  }
+
+  .shape-slider {
+    height: 240px;
+  }
+
+  .shape-slider-track {
+    inset: 16px 28px 34px 18px;
   }
 
   .hero h1 {
@@ -619,19 +660,10 @@ input {
   .cards {
     grid-template-columns: 1fr;
     gap: 14px;
-    margin-top: 20px;
   }
 
   .home-card {
     min-height: 180px;
-  }
-
-  .card-content h3 {
-    font-size: 1.25rem;
-  }
-
-  .bottom-fixed-bar {
-    padding-bottom: 10px;
   }
 
   .bottom-fixed-inner {
@@ -646,10 +678,6 @@ input {
   .contact-item {
     min-height: 52px;
     font-size: 0.92rem;
-  }
-
-  .opening-box {
-    min-height: 70px;
   }
 
   .opening-box strong {
